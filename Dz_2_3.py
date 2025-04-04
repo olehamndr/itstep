@@ -1,5 +1,5 @@
 import random
-print("Вам потрібно відгадати випадкове число від 1 до 10 за 3 спроби")
+print("Вам потрібно відгадати випадкове число від 1 до 10 з 3 спроб")
 random_number = random.randint(1, 10)
 count = 0
 user_number = 0

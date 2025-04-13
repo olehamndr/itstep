@@ -15,7 +15,7 @@ class BankAccount:
         elif amount > self.balance:
             print("Insufficient funds in the account.")
         else:
-            self.balance -= amount
+            self.balance = self.balance - amount
             print(amount, "UAH has been withdrawn. Current balance:", self.balance, "UAH.")
 
     def show_balance(self):

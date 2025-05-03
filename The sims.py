@@ -1,10 +1,11 @@
 import random
 class Human:
-    def __init__(self, name="Name", job="None", home="None", car="None"):
+    def __init__(self, name="Name", job="None", home="None", car="None", pet="None"):
         self.name = name
         self.job = job
         self.home = home
         self.car = car
+        self.pet = pet
         self.money = 100
         self.gladness = 50
         self.satiety = 50
@@ -22,9 +23,16 @@ def get_job(self):
         return
     self.job = Job(job_list)
 
+def get_pet(self):
+    self.pet = Pet()
 
-
-
+def petting(self):
+    if self.pet:
+        self.satiety += 10
+        self.pet.mood += 5
+        print(f"{self.name} stroked {self.pet}")
+    else:
+        print(f"{self.name} don`t have a pet")
 
 
 
@@ -66,3 +74,16 @@ class Job:
         self.job = random.choise(list(job_list))
         self.salary = job_list[self.job]["salary"]
         self.gladness_less = job_list[self.job]["gladness_less"]
+
+pet_list = {
+    "Cat": {"satiety": 70, "mood": 70, "energy": 50},
+    "Dog": {"satiety": 60, "mood": 80, "energy": 60},
+    "Parrot": {"satiety": 50, "mood": 90, "energy": 40},
+    "Hamster": {"satiety": 65, "mood": 75, "energy": 55},
+}
+class Pet:
+    def __init__(self, pet_list):
+        self.pet = random.choice(list(pet_list))
+        self.satiety= pet_list[self.pet]["pet satiety"]
+        self.mood = pet_list[self.pet]["pet mood"]
+        self.energy = pet_list[self.pet]["pet energy"]

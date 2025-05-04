@@ -34,7 +34,41 @@ def petting(self):
     else:
         print(f"{self.name} don`t have a pet")
 
+def eat(self):
+    if self.home.food <= 0:
+        self.shoping("food")
+    else:
+        if self.satiety >= 100:
+            return
+        else:
+            self.satiety += 5
+            self.home.food -= 5
 
+def chill(self):
+    self.gladness += 10
+    self.home.mess += 5
+
+def cleen_home(self):
+    self.gladness -= 5
+    self.home.mess = 0
+
+def to_repair(self):
+    self.money -= 50
+    self.car.strenght += 100
+
+def work(self):
+    if self.car.drive():
+        pass
+    else:
+        if self.car.fuel <= self.car.consumption:
+            self.shopping("fuel")
+            return
+        else:
+            self.to_repair()
+            return
+        self.money += self.job.salary
+        self.gladness -= self.job.gladness_less
+        self.satiety -= 4
 
 
 class House:

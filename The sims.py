@@ -19,8 +19,12 @@ def get_job(self):
     if self.car.drive():
         pass
     else:
-        self.to_repair()
-        return
+        if self.car.fuel <= self.car.consumption:
+            self.shopping("fuel")
+            return
+        else:
+            self.to_repair()
+            return
     self.job = Job(job_list)
 
 def get_pet(self):
@@ -69,6 +73,99 @@ def work(self):
         self.money += self.job.salary
         self.gladness -= self.job.gladness_less
         self.satiety -= 4
+
+def shopping(self, manage):
+    if self.car.drive():
+        pass
+    else:
+        if self.car.fuel <= self.car.consumption:
+            manage = "fuel"
+        else:
+            self.to_repair()
+            return
+        if manage == "fuel":
+            self.car.fuel += 100
+            self.money -= 100
+            print("I bought fuel")
+        elif manage == "food":
+            self.home.food += 50
+            self.money -=  50
+            print("I bought food")
+        elif manage == "delicacies":
+            self.money -= 10
+            self.gladness += 10
+            self.satiety += 2
+            print("I bought delicacies")
+
+def days_indexes(self, day):
+    day = f" Today the {day} of {self.name} 's life "
+    print(f"{day:=^50}", "\n")
+    human_indexes = self.name + "'s indexes"
+    print(f"{human_indexes:^50}", "\n")
+    print(f"Money – {self.money}")
+    print(f"Satiety – {self.satiety}")
+    print(f"Gladness – {self.gladness}")
+    home_indexes = "Home indexes"
+    print(f"{home_indexes:^50}", "\n")
+    print(f"Food – {self.home.food}")
+    print(f"Mess – {self.home.mess}")
+    car_indexes = f"{self.car.brand} car indexes"
+    print(f"{car_indexes:^50}", "\n")
+    print(f"Fuel – {self.car.fuel}")
+    print(f"Strength – {self.car.strength}")
+def is_alive(self):
+    if self.satiety < 0:
+        print("Dead...")
+        return False
+    if self.money < -500:
+        print("Bankrupt...")
+        return False
+    if self.gladness < 0:
+        print("Depression...")
+        return False
+
+def live(self, day):
+    if self.is_alive() == False:
+        return False
+    if self.home == "None":
+        print("Settled un the house")
+        self.get_home()
+    elif self.car == "None":
+        self.get_car()
+        print(f"I bought a car {self.car.brand}")
+    elif self.job == "None":
+        self.get_job()
+        print(f"Going to get job  {self.job.job}, with salaru {self.jon.salary}")
+    self.days_indexes(day)
+    if self.satiety < 20:
+        print("I am going eat")
+        self.eat()
+        if self.gladness < 20:
+            if self.home.mess > 20:
+                print("I will clearn my home")
+                self.cleen_home()
+            else:
+                print("Lets chill")
+                self.chill()
+        if self.money < -50:
+            print("Start working")
+            self.work()
+        dise = random.randint(1,4)
+        if dise == 1:
+            print("Lets chill")
+            self.chill()
+        elif dise == 2:
+            print("Start working")
+            self.work()
+        elif dise == 3:
+            print("I will clean my home")
+            self.cleen_home()
+        elif dise == 4:
+            print("Time for treats")
+            self.shopping(manage = "delicacies")
+
+
+
 
 
 class House:

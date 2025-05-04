@@ -140,29 +140,29 @@ def live(self, day):
     if self.satiety < 20:
         print("I am going eat")
         self.eat()
-        if self.gladness < 20:
-            if self.home.mess > 20:
-                print("I will clearn my home")
-                self.cleen_home()
-            else:
-                print("Lets chill")
-                self.chill()
-        if self.money < -50:
-            print("Start working")
-            self.work()
-        dise = random.randint(1,4)
-        if dise == 1:
+    if self.gladness < 20:
+        if self.home.mess > 20:
+            print("I will clearn my home")
+            self.cleen_home()
+        else:
             print("Lets chill")
             self.chill()
-        elif dise == 2:
-            print("Start working")
-            self.work()
-        elif dise == 3:
-            print("I will clean my home")
-            self.cleen_home()
-        elif dise == 4:
-            print("Time for treats")
-            self.shopping(manage = "delicacies")
+    if self.money < -50:
+        print("Start working")
+        self.work()
+        dise = random.randint(1,4)
+    if dise == 1:
+        print("Lets chill")
+        self.chill()
+    elif dise == 2:
+        print("Start working")
+        self.work()
+    elif dise == 3:
+        print("I will clean my home")
+        self.cleen_home()
+    elif dise == 4:
+        print("Time for treats")
+        self.shopping(manage = "delicacies")
 
 
 
